@@ -30,13 +30,13 @@ namespace YehonatanShlainTest2024
         public int getExtra() { return extra; }
         public void setExtra(int minutes, int usage)
         {
-            if (maxTime - minutes > 0) 
+            if (minutes - maxTime > 0) 
             {
-                this.extra += maxTime - minutes;
+                this.extra += minutes - maxTime;
             }
-            if (maxData - usage > 0)
+            if (usage - maxData > 0)
             {
-                this.extra += (maxData - usage) * 2;
+                this.extra += (usage - maxData) * 2;
             }
         }
     }

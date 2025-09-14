@@ -8,7 +8,24 @@ namespace YehonatanShlainTest2024
 {
     internal class Program
     {
-        public int Calculate(TourPackage[] packages)
+        public static int[] arr = new int[] {1,2,3,4,5,6,7,8,9};
+        public static bool GetPass(int[] arr, int password)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == password)
+                {
+                    return false; 
+                }
+            }
+            for (int j = arr.Length - 1; j > 0; j--)
+            {
+                arr[j] = arr[j - 1];
+            }
+            arr[0] = password;
+            return true;
+        }
+        public static int Calculate(TourPackage[] packages)
         {
             int count = 0;
             for (int i = 0; i < packages.Length; i++)
@@ -20,7 +37,7 @@ namespace YehonatanShlainTest2024
             }
             return count;
         }
-        public int[] Customers(TourPackage[] packages) 
+        public static int[] Customers(TourPackage[] packages) 
         {
             int[] Id = new int[Calculate(packages)];
             int index = 0;
@@ -34,37 +51,24 @@ namespace YehonatanShlainTest2024
             }
             return Id;
         }
-        public int Last(Lesson[] lessons) 
-        {
-            int last = 0;
-            for (int i = 0; i + 1 < lessons.Length; i++) 
-            {
-                if (lessons[i].IsLater(lessons[i + 1]))
-                {
-                    last = lessons[i].GetId();
-                }
-                else
-                {
-                    last = lessons[i + 1].GetId();
-                }
-            }
-            return last;
-        }
-        public int sumDuration(Lesson[] lessons, int ID)
-        {
-            int sum = 0;
-            for (int i = 0; i < lessons.Length; i++) 
-            {
-                if (lessons[i].GetId() == ID)
-                {
-                    sum += lessons[i].GetDuration();
-                    return true;
-                }
-                return false;
-            }
-        }
         static void Main(string[] args)
         {
+            Program p = new Program();
+            TourPackage[] packages = new TourPackage[3];
+            packages[0] = new TourPackage(1, 100, 60, 500, 0);
+            packages[1] = new TourPackage(2, 200, 120, 1000, 0);
+            packages[2] = new TourPackage(3, 300, 180, 1500, 0);
+            packages[0].setExtra(70, 600);
+            packages[1].setExtra(130, 1100);
+            packages[2].setExtra(180, 1500);
+            Console.WriteLine(Calculate(packages));
+            int[] arr1 = Customers(packages);
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                Console.WriteLine(arr1[i]);
+            }
+            Console.WriteLine(GetPass(arr, 10));
+            Console.WriteLine(string.Join(", ", arr));
         }
     }
 }

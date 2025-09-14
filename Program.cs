@@ -28,14 +28,20 @@ namespace YehonatanShlainTest2024
         // Ex 3
         public static void Shuffle(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
+            Random rand = new Random();
+            for (int i = 0; i < 30; i++)
             {
-                Random rand = new Random();
-                int j = rand.Next(0, arr.Length);
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                int index1 = rand.Next(0, arr.Length);
+                int index2 = rand.Next(0, arr.Length);
+                if (index1 != index2)
+                {
+                    int temp = arr[index1];
+                    arr[index1] = arr[index2];
+                    arr[index2] = temp;
+                }
+                else { i--; }
             }
+            Console.WriteLine(string.Join(", ", arr));
         }
         // Ex 4
         public static int Calculate(TourPackage[] packages)
@@ -67,13 +73,13 @@ namespace YehonatanShlainTest2024
         // Ex 5
         public static void Last(Lesson[] lessons)
         {
-            int last = 0;
+            Lesson last = lessons[0];
             for (int i = 0; i < lessons.Length - 1; i++)
             {
-                if (lessons[i].IsLater(lessons[i + 1]))
-                    last = lessons[i].GetId();
+                if (lessons[i].IsLater(last))
+                    last = lessons[i];
             }
-            Console.WriteLine(last);
+            Console.WriteLine(last.GetId());
         }
         public static int SumDuration(Lesson[] lessons, int ID)
         {
@@ -95,22 +101,24 @@ namespace YehonatanShlainTest2024
             }
             return max;
         }
+        //Main
         static void Main(string[] args)
         {
-            Program p = new Program();
-            TourPackage[] packages = new TourPackage[3];
-            packages[0] = new TourPackage(1, 100, 60, 500, 0);
-            packages[1] = new TourPackage(2, 200, 120, 1000, 0);
-            packages[2] = new TourPackage(3, 300, 180, 1500, 0);
-            packages[0].setExtra(70, 600);
-            packages[1].setExtra(130, 1100);
-            packages[2].setExtra(180, 1500);
-            Console.WriteLine(Calculate(packages));
-            int[] arr1 = Customers(packages);
-            Console.WriteLine(string.Join("","", arr1));
-            int[] arr = new int[5] { 1, 2, 3, 4, 5 };
-            Console.WriteLine(GetPass(arr, 10));
-            Console.WriteLine(string.Join(", ", arr));
+            //Program p = new Program();
+            //TourPackage[] packages = new TourPackage[3];
+            //packages[0] = new TourPackage(1, 100, 60, 500, 0);
+            //packages[1] = new TourPackage(2, 200, 120, 1000, 0);
+            //packages[2] = new TourPackage(3, 300, 180, 1500, 0);
+            //packages[0].setExtra(70, 600);
+            //packages[1].setExtra(130, 1100);
+            //packages[2].setExtra(180, 1500);
+            //Console.WriteLine(Calculate(packages));
+            //int[] arr1 = Customers(packages);
+            //Console.WriteLine(string.Join("","", arr1));
+            //int[] arr = new int[5] { 1, 2, 3, 4, 5 };
+            //Console.WriteLine(GetPass(arr, 10));
+            //Console.WriteLine(string.Join(", ", arr));
+            Shuffle(new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
         }
     }
 }

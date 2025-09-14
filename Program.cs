@@ -69,7 +69,7 @@ namespace YehonatanShlainTest2024
             for (int i = 1; i < lessons.Length; i++)
             {
                 if (SumDuration(lessons, lessons[i].GetId()) > max)
-                    max = SumDuration(lessons, lessons[i].GetId());
+                    max = lessons[i].GetId();
             }
             return max;
         }

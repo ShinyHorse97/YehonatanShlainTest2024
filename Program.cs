@@ -8,7 +8,7 @@ namespace YehonatanShlainTest2024
 {
     internal class Program
     {
-        // Ex 1
+        // Ex 2
         public static bool GetPass(int[] arr, int password)
         {
             for (int i = 0; i < arr.Length; i++)
@@ -25,7 +25,7 @@ namespace YehonatanShlainTest2024
             arr[0] = password;
             return true;
         }
-        // Ex 2
+        // Ex 4
         public static int Calculate(TourPackage[] packages)
         {
             int count = 0;
@@ -51,6 +51,27 @@ namespace YehonatanShlainTest2024
                 }
             }
             return Id;
+        }
+        // Ex 5
+        public int SumDuration(Lesson[] lessons, int ID)
+        {
+            int sum = 0;
+            for (int i = 0; i < lessons.Length; i++)
+            {
+                if (lessons[i].GetId() == ID)
+                    sum += lessons[i].GetDuration();
+            }
+            return sum;
+        }
+        public int Longest(Lesson[] lessons)
+        {
+            int max = lessons[0].GetDuration();
+            for (int i = 1; i < lessons.Length; i++)
+            {
+                if (lessons[i].GetDuration() > max)
+                    max = lessons[i].GetDuration();
+            }
+            return max;
         }
         static void Main(string[] args)
         {

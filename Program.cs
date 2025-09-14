@@ -65,10 +65,10 @@ namespace YehonatanShlainTest2024
         }
         public int Longest(Lesson[] lessons)
         {
-            int max = SumDuration(lessons, lessons[0].GetId());
+            int max = lessons[0].GetId();
             for (int i = 1; i < lessons.Length; i++)
             {
-                if (SumDuration(lessons, lessons[i].GetId()) > max)
+                if (SumDuration(lessons, lessons[i].GetId()) > SumDuration(lessons, max))
                     max = lessons[i].GetId();
             }
             return max;

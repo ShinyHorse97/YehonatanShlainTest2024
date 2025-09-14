@@ -8,7 +8,7 @@ namespace YehonatanShlainTest2024
 {
     internal class Program
     {
-        public static int[] arr = new int[] {1,2,3,4,5,6,7,8,9};
+        // Ex 1
         public static bool GetPass(int[] arr, int password)
         {
             for (int i = 0; i < arr.Length; i++)
@@ -25,6 +25,7 @@ namespace YehonatanShlainTest2024
             arr[0] = password;
             return true;
         }
+        // Ex 2
         public static int Calculate(TourPackage[] packages)
         {
             int count = 0;
@@ -63,10 +64,8 @@ namespace YehonatanShlainTest2024
             packages[2].setExtra(180, 1500);
             Console.WriteLine(Calculate(packages));
             int[] arr1 = Customers(packages);
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                Console.WriteLine(arr1[i]);
-            }
+            Console.WriteLine(string.Join("","", arr1));
+            int[] arr = new int[5] { 1, 2, 3, 4, 5 };
             Console.WriteLine(GetPass(arr, 10));
             Console.WriteLine(string.Join(", ", arr));
         }

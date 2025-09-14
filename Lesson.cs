@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace YehonatanShlainTest2024
 {
+    // ex 5
     internal class Lesson
     {
         private int id;

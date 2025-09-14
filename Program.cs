@@ -34,6 +34,35 @@ namespace YehonatanShlainTest2024
             }
             return Id;
         }
+        public int Last(Lesson[] lessons) 
+        {
+            int last = 0;
+            for (int i = 0; i + 1 < lessons.Length; i++) 
+            {
+                if (lessons[i].IsLater(lessons[i + 1]))
+                {
+                    last = lessons[i].GetId();
+                }
+                else
+                {
+                    last = lessons[i + 1].GetId();
+                }
+            }
+            return last;
+        }
+        public int sumDuration(Lesson[] lessons, int ID)
+        {
+            int sum = 0;
+            for (int i = 0; i < lessons.Length; i++) 
+            {
+                if (lessons[i].GetId() == ID)
+                {
+                    sum += lessons[i].GetDuration();
+                    return true;
+                }
+                return false;
+            }
+        }
         static void Main(string[] args)
         {
         }

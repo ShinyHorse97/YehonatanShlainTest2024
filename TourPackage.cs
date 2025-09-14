@@ -29,6 +29,10 @@ namespace YehonatanShlainTest2024
         public int getMaxTime() { return maxTime; }
         public int getMaxData() { return maxData; }
         public int getExtra() { return extra; }
+        public override string ToString()
+        {
+            return "id: " + id + ", price: " + price + ", maxTime: " + maxTime + ", maxData: " + maxData + ", extra: " + extra;
+        }
         public void setExtra(int minutes, int usage)
         {
             if (minutes - maxTime > 0) 

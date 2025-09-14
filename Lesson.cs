@@ -27,6 +27,10 @@ namespace YehonatanShlainTest2024
         public int GetHh() { return hh; }
         public int GetMm() { return mm; }
         public int GetDuration() { return duration; }
+        public override string ToString()
+        {
+            return "id: " + id + ", time: " + hh + ":" + mm + ", duration: " + duration;
+        }
         public void SetTime(int hh, int mm)
         {
             if (hh < 8 || hh > 17 || mm < 0 || mm > 59)

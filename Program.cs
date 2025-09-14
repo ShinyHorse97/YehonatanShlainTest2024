@@ -25,6 +25,18 @@ namespace YehonatanShlainTest2024
             arr[0] = password;
             return true;
         }
+        // Ex 3
+        public static void Shuffle(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Random rand = new Random();
+                int j = rand.Next(0, arr.Length);
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
         // Ex 4
         public static int Calculate(TourPackage[] packages)
         {
@@ -53,7 +65,17 @@ namespace YehonatanShlainTest2024
             return Id;
         }
         // Ex 5
-        public int SumDuration(Lesson[] lessons, int ID)
+        public static void Last(Lesson[] lessons)
+        {
+            int last = 0;
+            for (int i = 0; i < lessons.Length - 1; i++)
+            {
+                if (lessons[i].IsLater(lessons[i + 1]))
+                    last = lessons[i].GetId();
+            }
+            Console.WriteLine(last);
+        }
+        public static int SumDuration(Lesson[] lessons, int ID)
         {
             int sum = 0;
             for (int i = 0; i < lessons.Length; i++)
@@ -63,7 +85,7 @@ namespace YehonatanShlainTest2024
             }
             return sum;
         }
-        public int Longest(Lesson[] lessons)
+        public static int Longest(Lesson[] lessons)
         {
             int max = lessons[0].GetId();
             for (int i = 1; i < lessons.Length; i++)
